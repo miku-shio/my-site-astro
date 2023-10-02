@@ -1,0 +1,154 @@
+.root {
+  display: flex;
+  @include mq-sp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    gap: 56px;
+    visibility: hidden;
+    background: var(--color-primary);
+    padding: var(--headerHeight-sp) 16px 40px;
+  }
+  @include mq {
+    align-items: center;
+    gap: 40px;
+  }
+
+  &.isOpen {
+    @include mq-sp {
+      visibility: visible;
+      color: var(--color-secondary);
+    }
+  }
+}
+
+.list {
+  @include mq-sp {
+    margin-top: 120px;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: 40px;
+  }
+  @include mq {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.item {
+  @include mq-sp {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  @include mq {
+    font-size: 16px;
+  }
+}
+
+.link {
+}
+
+.social {
+  @include mq-sp {
+    display: flex;
+    justify-content: center;
+  }
+  @include mq {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 20px 40px;
+  }
+}
+
+.contact {
+  display: inline-block;
+  border-radius: 40px;
+  text-align: center;
+
+  @include mq-sp {
+    order: 1;
+    margin-top: auto;
+    padding: 10px 0;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-size: 24px;
+  }
+
+  @include mq {
+    padding: 3px 0;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    width: 130px;
+    font-size: 16px;
+  }
+}
+
+.button {
+  @include mq-sp {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+  }
+  @include mq {
+    display: none;
+  }
+
+  &[aria-expanded="true"] {
+    color: var(--color-primary);
+    background: var(--color-secondary);
+
+    .button__icon {
+      &::before,
+      &::after {
+        background: var(--color-primary);
+      }
+    }
+  }
+}
+
+.button__icon {
+  @include mq-sp {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    &::before,
+    &::after {
+      position: absolute;
+      left: 18px;
+      content: "";
+      display: inline-block;
+      background: var(--color-secondary);
+      height: 2px;
+      border-radius: 24px;
+    }
+    &::before {
+      top: 18px;
+      width: 20px;
+    }
+    &::after {
+      top: 26px;
+      width: 30px;
+    }
+  }
+}
+
+.button__text {
+  @include mq-sp {
+    font-size: 14px;
+  }
+}

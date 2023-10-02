@@ -1,0 +1,70 @@
+:root {
+  /* color */
+  --color-primary: #333;
+  --color-secondary: #fff;
+  --color-background: #f1f2f2;
+  --color-text: #333;
+  --color-gray: #888;
+
+  /* contentWidth */
+  --content-width-small: 800px;
+  --content-width-medium: 1200px;
+
+  /* headerHeight */
+  --headerHeight: 100px;
+  --headerHeight-sp: 80px;
+}
+
+html {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--color-text);
+  line-height: 1.5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+footer {
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1;
+}
+
+.screenReaderText {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.skipItem {
+  a {
+    font-weight: bold;
+    &:not(:focus) {
+      outline: auto;
+      position: absolute;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+    }
+  }
+}
+
+.link {
+  text-decoration: underline;
+}
+
+input {
+  &:focus-visible {
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+}

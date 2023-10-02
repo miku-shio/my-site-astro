@@ -1,0 +1,27 @@
+---
+interface Props {
+  id?: string;
+  bgGray?: boolean;
+}
+const { bgGray, id } = Astro.props;
+---
+
+<section id={id && id} class:list={["section", { bgGray }]}>
+  <slot />
+</section>
+
+<style lang="scss">
+  .section {
+    @include mq-sp {
+      padding: 40px 0 64px;
+      min-height: 300px;
+    }
+    @include mq {
+      padding: 80px 0 120px;
+      min-height: 500px;
+    }
+  }
+  .bgGray {
+    background: var(--color-background);
+  }
+</style>

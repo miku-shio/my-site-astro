@@ -1,0 +1,49 @@
+---
+import { GlobalNavi } from "./GlobalNavi/GlobalNavi";
+---
+
+<p class="skipItem"><a href="#main">本文へスキップ</a></p>
+<header class="header">
+  <div class="header__inner">
+    <p class="header__logo">
+      <a href="/">ロゴ</a>
+    </p>
+    <GlobalNavi client:load />
+  </div>
+</header>
+
+<style lang="scss">
+  .header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @include mq-sp {
+      height: var(--headerHeight-sp);
+    }
+    @include mq {
+      height: var(--headerHeight);
+    }
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    @include mq-sp {
+      padding: 0 16px;
+    }
+    @include mq {
+      padding: 0 40px;
+    }
+  }
+
+  .header__logo {
+    a {
+      display: inline-block;
+      font-size: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+interface Props {
+  size?: keyof typeof sizes;
+}
+
+const sizes = {
+  s: "small",
+  m: "medium",
+};
+
+const { size = "m" } = Astro.props;
+---
+
+<div class=`contentsLayout ${sizes[size]}`>
+  <slot />
+</div>
+
+<style lang="scss">
+  .contentsLayout {
+    margin-inline: auto;
+    @include mq-sp {
+      padding: 0 16px;
+    }
+    @include mq {
+      padding: 0 40px;
+    }
+  }
+
+  .small {
+    @include mq {
+      max-width: var(--content-width-small);
+    }
+  }
+
+  .medium {
+    @include mq {
+      max-width: var(--content-width-medium);
+    }
+  }
+</style>
