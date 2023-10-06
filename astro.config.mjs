@@ -7,10 +7,10 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "src/styles/_mixin.scss" as *;`
-        }
-      }
-    }
+          additionalData: `@use "src/styles/_mixin.scss" as *;`,
+        },
+      },
+    },
   },
-  integrations: [react()]
+  integrations: [react()],
 });

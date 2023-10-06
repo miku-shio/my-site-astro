@@ -1,20 +1,25 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
-import Heading from "../components/Heading.astro";
-import MainVisual from "../components/MainVisual.astro";
+import { Heading } from "../components/Heading/Heading";
+import { MainVisual } from "../components/MainVisual/MainVisual";
 import Section from "../layouts/Section.astro";
+import { Image } from "astro:assets";
+import landscape from "../assets/images/landscape.jpg";
 ---
 
 <BaseLayout>
-  <MainVisual />
-  <Section bgGray id="about">
+  <MainVisual client:load />
+  <div class="image__wrap">
+    <Image src={landscape} alt="Lake Tekapo" class="fit image" />
+  </div>
+  <Section id="about">
     <ContentLayout size="s">
       <Heading center>About</Heading>
       <p class="text">comming soon...</p>
     </ContentLayout>
   </Section>
-  <Section id="skill">
+  <Section bgGray id="skill">
     <ContentLayout size="s">
       <Heading center>Skill</Heading>
       <p class="text">comming soon...</p>
@@ -39,4 +44,27 @@ import Section from "../layouts/Section.astro";
     margin-top: 40px;
     text-align: center;
   }
+
+  .image__wrap {
+    overflow: hidden;
+    height: 28vw;
+  }
 </style>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.set(".image", {
+    y: 0,
+  });
+  gsap.to(".image", {
+    scrollTrigger: {
+      trigger: ".image",
+      start: "top center",
+      scrub: true,
+    },
+    y: -50,
+  });
+</script>

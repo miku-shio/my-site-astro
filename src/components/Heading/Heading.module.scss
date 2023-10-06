@@ -1,0 +1,14 @@
+.root {
+  font-weight: bold;
+  line-height: 1.2;
+  @include mq-sp {
+    font-size: 40px;
+  }
+  @include mq {
+    font-size: 64px;
+  }
+}
+
+.center {
+  text-align: center;
+}
