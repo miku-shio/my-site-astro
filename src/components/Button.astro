@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class:list={["button", Astro.props.class]}>
+  <slot />
+</a>
+
+<style lang="scss">
+  .button {
+    display: inline-block;
+    color: var(--color-secondary);
+    background: var(--color-primary);
+    text-align: center;
+    border-radius: 40px;
+    @include mq {
+      padding: 10px 24px;
+      min-width: 240px;
+    }
+    @include mq-sp {
+      padding: 12px 10px;
+      width: 100%;
+    }
+  }
+
+  .center {
+    @include mq {
+      display: flex;
+      justify-content: center;
+      width: fit-content;
+      margin-inline: auto;
+    }
+  }
+</style>

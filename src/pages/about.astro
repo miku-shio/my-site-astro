@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../layouts/Section.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
+import { Heading } from "../components/Heading/Heading";
+
+const pageTitle = "About";
+---
+
+<BaseLayout underlayer pageTitle={pageTitle}>
+  <Section>
+    <ContentLayout>
+      <Heading as="h1">{pageTitle}</Heading>
+      <div class="contents"></div>
+      <p>現在作成中です。</p>
+    </ContentLayout>
+  </Section>
+</BaseLayout>
+
+<style lang="scss">
+  .contents {
+    margin-top: 40px;
+  }
+</style>

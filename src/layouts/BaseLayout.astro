@@ -3,11 +3,12 @@ import "destyle.css";
 import "../styles/global.scss";
 interface Props {
   pageTitle?: string;
+  underlayer?: boolean;
 }
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, underlayer } = Astro.props;
 const siteTitle = "miku";
 ---
 
@@ -25,7 +26,7 @@ const siteTitle = "miku";
   </head>
   <body>
     <Header />
-    <main id="main">
+    <main id="main" class:list={[{ underlayer: underlayer }]}>
       <slot />
     </main>
     <Footer />

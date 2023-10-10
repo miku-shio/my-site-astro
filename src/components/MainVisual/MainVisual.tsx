@@ -27,24 +27,6 @@ export const MainVisual = () => {
     ctx.fill();
   };
 
-  // MVのタイプライター
-  const typeWrite = () => {
-    init("#first", {
-      strings: [`Hi,I'm Miku.`],
-      loop: false,
-      onFinished() {
-        document.querySelector(".ityped-cursor")?.remove();
-        init("#second", {
-          strings: [`I love freedom!`],
-          loop: false,
-          onFinished() {
-            document.querySelector(".ityped-cursor")?.remove();
-          },
-        });
-      },
-    });
-  };
-
   useEffect(() => {
     const color = getComputedStyle(document.documentElement).getPropertyValue(
       "--color-accent",
@@ -144,6 +126,27 @@ export const MainVisual = () => {
     }, 1500);
   }, [width, height]);
 
+  const handleComplete = () => {
+    loadingCanvas.current?.remove();
+    document.body.style.position = "";
+
+    // MainVisualのテキスト
+    init("#first", {
+      strings: [`Hi,I'm Miku.`],
+      loop: false,
+      onFinished() {
+        document.querySelector(".ityped-cursor")?.remove();
+        init("#second", {
+          strings: [`I love freedom!`],
+          loop: false,
+          onFinished() {
+            document.querySelector(".ityped-cursor")?.remove();
+          },
+        });
+      },
+    });
+  };
+
   useEffect(() => {
     const tl = gsap.timeline();
 
@@ -160,14 +163,7 @@ export const MainVisual = () => {
       duration: 1.6,
       delay: 2,
       ease: "Expo.easeOut",
-
-      onComplete: () => {
-        //canvas削除
-        loadingCanvas.current?.remove();
-        // MainVisualのテキスト
-        typeWrite();
-        document.body.style.position = "";
-      },
+      onComplete: handleComplete,
     })
 
       .to(
@@ -188,16 +184,14 @@ export const MainVisual = () => {
           opacity: 1,
         },
         "same",
-      )
-      .addLabel("finish");
+      );
 
     //初回のみローディング
     if (!sessionStorage.getItem(keyName)) {
       sessionStorage.setItem(keyName, String(keyValue));
     } else {
-      // loadingCanvas.current?.remove();
-      // typeWrite();
-      // tl.seek("finish");
+      tl.seek(tl.endTime());
+      handleComplete();
     }
   }, []);
 
@@ -210,7 +204,7 @@ export const MainVisual = () => {
         <canvas ref={loadingCanvas} className={styles.curtain}></canvas>
       </div>
       <div className={styles.root}>
-        <Heading as="h1">
+        <Heading>
           <span id="first"></span>
           <br />
           <span id="second"></span>

@@ -4,50 +4,120 @@ import ContentLayout from "../layouts/ContentLayout.astro";
 import { Heading } from "../components/Heading/Heading";
 import { MainVisual } from "../components/MainVisual/MainVisual";
 import Section from "../layouts/Section.astro";
+import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
 import landscape from "../assets/images/landscape.jpg";
+import avator from "../assets/images/avatar.png";
 ---
 
 <BaseLayout>
   <MainVisual client:load />
-  <div class="image__wrap">
-    <Image src={landscape} alt="Lake Tekapo" class="fit image" />
+  <div class="sceneImage">
+    <Image
+      src={landscape}
+      alt="Lake Tekapo"
+      width={1512}
+      height={600}
+      class="fit image"
+    />
   </div>
   <Section id="about">
     <ContentLayout size="s">
       <Heading center>About</Heading>
-      <p class="text">comming soon...</p>
+      <div class="contents">
+        <div class="about__grid">
+          <div class="about__image">
+            <Image
+              src={avator}
+              width={280}
+              height={280}
+              alt="mikuのアイコン"
+              class="fit"
+            />
+          </div>
+          <Text>
+            こんにちは、mikuと申します。フロントエンドエンジニアをしています。
+            自己紹介時に「あなたのWEBサイトないの？」と聞かれることが増えたので自分のサイトを作りました。
+            好きなフレームワークはNext.jsです。
+          </Text>
+          <Text>
+            鶏肉が好きです。趣味は散歩です。星座には全く詳しくありませんが、星空が好きです。<br
+            />どうぞよろしくお願いします。
+          </Text>
+        </div>
+        <div class="about__button">
+          <Button href="/about" class="center">About me</Button>
+        </div>
+      </div>
     </ContentLayout>
   </Section>
   <Section bgGray id="skill">
     <ContentLayout size="s">
       <Heading center>Skill</Heading>
-      <p class="text">comming soon...</p>
+      <div class="contents">
+        <Text center>現在作成中です。</Text>
+      </div>
     </ContentLayout>
   </Section>
   <Section id="contact">
     <ContentLayout size="s">
       <Heading center>Contact</Heading>
-      <p class="text">
-        お問い合わせは<a
-          href="https://www.twitter.com/miku__daifuku"
-          class="link"
-          target="_blank">Twiiter</a
-        >のDMよりご連絡ください。
-      </p>
+      <div class="contents">
+        <Text center>
+          お問い合わせは<a
+            href="https://www.twitter.com/miku__daifuku"
+            class="link"
+            target="_blank">Twiiter</a
+          >のDMよりご連絡ください。
+        </Text>
+      </div>
     </ContentLayout>
   </Section>
 </BaseLayout>
 
 <style lang="scss">
-  .text {
+  .contents {
     margin-top: 40px;
-    text-align: center;
+    @include mq-sp {
+      padding: 0 16px;
+    }
   }
-
-  .image__wrap {
+  .sceneImage {
     overflow: hidden;
     height: 28vw;
+  }
+
+  .about__grid {
+    display: grid;
+    margin-top: 40px;
+
+    @include mq {
+      grid-template:
+        auto 1fr /
+        min(20vw, 260px) 1fr;
+      gap: 0 40px;
+    }
+  }
+
+  .about__image {
+    @include mq-sp {
+      width: 260px;
+      margin: 0 auto 32px;
+    }
+
+    @include mq {
+      grid-row: 1/3;
+    }
+  }
+
+  .about__button {
+    @include mq-sp {
+      margin-top: 48px;
+    }
+    @include mq {
+      margin-top: 40px;
+    }
   }
 </style>
 
