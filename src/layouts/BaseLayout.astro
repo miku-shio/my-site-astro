@@ -4,12 +4,20 @@ import "../styles/global.scss";
 interface Props {
   pageTitle?: string;
   underlayer?: boolean;
+  description?: string;
 }
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const { pageTitle, underlayer } = Astro.props;
-const siteTitle = "miku";
+const {
+  pageTitle,
+  underlayer,
+  description = "これはMikuのWebサイトです。",
+} = Astro.props;
+const siteTitle = "Miku site";
+
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// const socialImageURL = new URL("/ogp.png", Astro.url);
 ---
 
 <!doctype html>
@@ -18,7 +26,26 @@ const siteTitle = "miku";
     <meta charset="UTF-8" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content={pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle}
+    />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:locale" content="ja_JP" />
+    <!-- <meta property="og:url" content={canonicalURL}> -->
+    <!-- <link rel="canonical" href={canonicalURL} />
+    <meta property="og:image" content={socialImageURL} /> -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://twitter.com/miku__daifuku" />
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      href="/apple-icon.png"
+      type="image/png"
+      sizes="180x180"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>
       {pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle}

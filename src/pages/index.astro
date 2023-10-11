@@ -37,7 +37,7 @@ import avator from "../assets/images/avatar.png";
             />
           </div>
           <Text>
-            こんにちは、mikuと申します。フロントエンドエンジニアをしています。
+            こんにちは、mikuです。フロントエンドエンジニアをしています。
             自己紹介時に「あなたのWEBサイトないの？」と聞かれることが増えたので自分のサイトを作りました。
             好きなフレームワークはNext.jsです。
           </Text>
@@ -60,7 +60,23 @@ import avator from "../assets/images/avatar.png";
       </div>
     </ContentLayout>
   </Section>
-  <Section id="contact">
+  <Section id="production">
+    <ContentLayout size="s">
+      <Heading center>Production</Heading>
+      <div class="contents">
+        <Text center>
+          <a
+            href="https://miku-shio.github.io/todo-app/"
+            target="_blank"
+            class="link"
+          >
+            Todoリスト
+          </a>
+        </Text>
+      </div>
+    </ContentLayout>
+  </Section>
+  <Section bgGray id="contact">
     <ContentLayout size="s">
       <Heading center>Contact</Heading>
       <div class="contents">
@@ -127,7 +143,7 @@ import avator from "../assets/images/avatar.png";
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.set(".image", {
-    y: 0,
+    yPercent: -20,
   });
   gsap.to(".image", {
     scrollTrigger: {
@@ -135,6 +151,6 @@ import avator from "../assets/images/avatar.png";
       start: "top center",
       scrub: true,
     },
-    y: -50,
+    yPercent: -25,
   });
 </script>

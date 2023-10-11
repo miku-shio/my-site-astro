@@ -18,6 +18,10 @@ const naviList: Navi = [
     name: "Skill",
     href: "#skill",
   },
+  {
+    name: "Production",
+    href: "#production",
+  },
 ];
 
 export const GlobalNavi = () => {
