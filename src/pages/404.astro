@@ -3,9 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../layouts/Section.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
 import { Heading } from "../components/Heading/Heading";
+import Button from "../components/Button.astro";
 import Text from "../components/Text.astro";
 
-const pageTitle = "About";
+const pageTitle = "Not found";
 ---
 
 <BaseLayout underlayer pageTitle={pageTitle}>
@@ -13,7 +14,8 @@ const pageTitle = "About";
     <ContentLayout>
       <Heading as="h1">{pageTitle}</Heading>
       <div class="contents">
-        <Text>現在作成中です。</Text>
+        <Text>お探しのページは存在しないようです。</Text>
+        <div class="notFound-button"><Button href="/">Topに戻る</Button></div>
       </div>
     </ContentLayout>
   </Section>
@@ -21,6 +23,10 @@ const pageTitle = "About";
 
 <style lang="scss">
   .contents {
+    margin-top: 40px;
+  }
+
+  .notFound-button {
     margin-top: 40px;
   }
 </style>

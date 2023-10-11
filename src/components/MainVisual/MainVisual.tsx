@@ -2,7 +2,7 @@ import styles from "./MainVisual.module.scss";
 import { useEffect, useRef } from "react";
 import { Heading } from "../Heading/Heading";
 import { useWindowSize } from "../../hooks/useWindowSize";
-import { init } from "ityped";
+import { init } from "ityped/dist/index";
 import gsap from "gsap";
 
 export const MainVisual = () => {

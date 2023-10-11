@@ -1,8 +1,10 @@
 import styles from "./GlobalNavi.module.scss";
 import { Social } from "../Social/Social";
 import { useBodyFixed } from "../../hooks/useBodyFixed";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
+import { useWindowSize } from "../../hooks/useWindowSize";
+import { breakpoints } from "../../config/config";
 
 type Navi = { name: string; href: string }[];
 const naviList: Navi = [
@@ -27,11 +29,17 @@ const naviList: Navi = [
 export const GlobalNavi = () => {
   const { bodyFixed, setBodyFixed } = useBodyFixed();
   const [expanded, setExpanded] = useState<boolean>(false);
+  const [width] = useWindowSize();
 
   const clickHandle = () => {
     setExpanded(!expanded);
     setBodyFixed(!bodyFixed);
   };
+
+  if (breakpoints.md <= width && expanded) {
+    setExpanded(!expanded);
+    setBodyFixed(!bodyFixed);
+  }
 
   return (
     <>
@@ -56,7 +64,11 @@ export const GlobalNavi = () => {
         <ul className={styles.list}>
           {naviList.map((item) => (
             <li key={item.name} className={styles.item}>
-              <a href={item.href} className={styles.link}>
+              <a
+                href={item.href}
+                className={styles.link}
+                onClick={() => width < breakpoints.md && clickHandle()}
+              >
                 {item.name}
               </a>
             </li>
