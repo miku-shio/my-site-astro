@@ -10,7 +10,8 @@
     gap: 56px;
     visibility: hidden;
     background: var(--color-primary);
-    padding: var(--headerHeight-sp) 16px 40px;
+    padding: var(--headerHeight-sp) 16px 80px;
+    overflow-y: scroll;
   }
   @include mq {
     align-items: center;
@@ -27,7 +28,7 @@
 
 .list {
   @include mq-sp {
-    margin-top: 120px;
+    margin-top: 80px;
     display: grid;
     grid-template-rows: repeat(3, auto);
     gap: 40px;

@@ -4,6 +4,7 @@ import { Heading } from "../Heading/Heading";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { init } from "ityped/dist/index";
 import gsap from "gsap";
+import { breakpoints } from "../../config/config";
 
 export const MainVisual = () => {
   const circleCanvas = useRef<HTMLCanvasElement>(null);
@@ -14,6 +15,7 @@ export const MainVisual = () => {
   let y = 100;
   const keyName = "visit";
   const keyValue = true;
+  let circleSize = width < breakpoints.md ? 200 : 300;
 
   // loading用のcanvas描画
   const writeCanvas = (ctx: CanvasRenderingContext2D) => {
@@ -104,7 +106,7 @@ export const MainVisual = () => {
       requestAnimationFrame(render);
       circleCtx.setTransform(1, 0, 0, 1, 0, 0);
       circleCtx.clearRect(0, 0, width, height);
-      drawBezierCircle(width / 1.2, height / 1.4, 250);
+      drawBezierCircle(width / 1.2, height / 1.3, circleSize);
     };
     render();
 

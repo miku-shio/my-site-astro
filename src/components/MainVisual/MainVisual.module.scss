@@ -99,5 +99,10 @@
   position: absolute;
   z-index: -1;
   top: 0;
-  scale: 1.2;
+  @include mq {
+    scale: 1.2;
+  }
+  @include mq-sp {
+    scale: 1.3;
+  }
 }
