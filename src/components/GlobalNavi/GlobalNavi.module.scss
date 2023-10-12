@@ -97,9 +97,9 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 12px;
-    width: 64px;
-    height: 64px;
+    padding-bottom: 10px;
+    width: clamp(56px, 15vw, 64px);
+    height: clamp(56px, 15vw, 64px);
     border-radius: 50%;
     background: var(--color-primary);
     color: var(--color-secondary);
@@ -130,7 +130,7 @@
     &::before,
     &::after {
       position: absolute;
-      left: 18px;
+      left: 28%;
       content: "";
       display: inline-block;
       background: var(--color-secondary);

@@ -74,7 +74,11 @@ export const GlobalNavi = () => {
             </li>
           ))}
         </ul>
-        <a href="#contact" className={styles.contact}>
+        <a
+          href="#contact"
+          className={styles.contact}
+          onClick={() => width < breakpoints.md && clickHandle()}
+        >
           Contact
         </a>
         <div className={styles.social}>

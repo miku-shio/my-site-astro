@@ -19,7 +19,7 @@ import avator from "../assets/images/avatar.png";
       alt="Lake Tekapo"
       width={1512}
       height={600}
-      class="fit image"
+      class="cover image"
     />
   </div>
   <Section id="about">
@@ -101,7 +101,12 @@ import avator from "../assets/images/avatar.png";
   }
   .sceneImage {
     overflow: hidden;
-    height: 28vw;
+    @include mq-sp {
+      height: 80vw;
+    }
+    @include mq {
+      height: 28vw;
+    }
   }
 
   .about__grid {
@@ -118,7 +123,7 @@ import avator from "../assets/images/avatar.png";
 
   .about__image {
     @include mq-sp {
-      width: 260px;
+      width: min(64.1vw, 250px);
       margin: 0 auto 32px;
     }
 
