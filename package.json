@@ -18,6 +18,7 @@
     "@types/react": "^18.2.23",
     "@types/react-dom": "^18.2.8",
     "astro-iconify": "^1.2.0",
+    "astro-relative-links": "^0.3.4",
     "clsx": "^2.0.0",
     "destyle.css": "^4.0.0",
     "gsap": "^3.12.2",

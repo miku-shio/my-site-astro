@@ -19,7 +19,7 @@ import avator from "../assets/images/avatar.png";
       alt="Lake Tekapo"
       width={1512}
       height={600}
-      class="cover image"
+      class="cover"
     />
   </div>
   <Section id="about">
@@ -101,11 +101,10 @@ import avator from "../assets/images/avatar.png";
   }
   .sceneImage {
     overflow: hidden;
+    margin-inline: auto;
+    border-radius: 40px;
     @include mq-sp {
-      height: 80vw;
-    }
-    @include mq {
-      height: 28vw;
+      height: 50vw;
     }
   }
 
@@ -147,15 +146,19 @@ import avator from "../assets/images/avatar.png";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.set(".image", {
-    yPercent: -20,
-  });
-  gsap.to(".image", {
-    scrollTrigger: {
-      trigger: ".image",
-      start: "top center",
-      scrub: true,
+  gsap.fromTo(
+    ".sceneImage",
+    { scale: 0.8 },
+    {
+      scrollTrigger: {
+        trigger: ".sceneImage",
+        toggleActions: "play none none reverse",
+        start: "-50 center",
+        end: "bottom center",
+        scrub: true,
+      },
+      scale: 1,
+      borderRadius: 0,
     },
-    yPercent: -25,
-  });
+  );
 </script>

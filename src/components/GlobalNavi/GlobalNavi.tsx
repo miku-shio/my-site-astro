@@ -1,7 +1,7 @@
 import styles from "./GlobalNavi.module.scss";
 import { Social } from "../Social/Social";
 import { useBodyFixed } from "../../hooks/useBodyFixed";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { breakpoints } from "../../config/config";

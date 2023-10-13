@@ -3,36 +3,59 @@ interface Props {
   href: string;
   class?: string;
 }
+import { Icon } from "astro-iconify";
 
 const { href } = Astro.props;
 ---
 
 <a href={href} class:list={["button", Astro.props.class]}>
   <slot />
+  <Icon name="majesticons:arrow-up-line" class="button__icon" />
 </a>
 
 <style lang="scss">
   .button {
-    display: inline-block;
-    color: var(--color-secondary);
-    background: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    color: var(--color-primary);
+    background: var(--color-secondary);
     text-align: center;
     border-radius: 40px;
+    border: 2px solid var(--color-primary);
+    font-weight: bold;
+    transition-property: color, background;
+    transition-duration: 0.3s;
+
     @include mq {
       padding: 10px 24px;
       min-width: 240px;
     }
     @include mq-sp {
-      padding: 12px 10px;
+      padding: 14px 20px;
       width: 100%;
     }
+
+    @include hover {
+      background: var(--color-primary);
+      color: var(--color-secondary);
+      .button__icon {
+        translate: 5px;
+      }
+    }
+  }
+
+  .button__icon {
+    width: 24px;
+    height: 100%;
+    rotate: 90deg;
+    flex-shrink: 0;
+    transition: translate 0.3s;
   }
 
   .center {
     @include mq {
-      display: flex;
-      justify-content: center;
-      width: fit-content;
       margin-inline: auto;
     }
   }
