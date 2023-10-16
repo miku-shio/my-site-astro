@@ -1,12 +1,15 @@
 ---
 interface Props {
   id?: string;
-  bgGray?: boolean;
+  class?: string;
 }
-const { bgGray, id } = Astro.props;
+const { id } = Astro.props;
 ---
 
-<section id={id && id} class:list={["section", { bgGray }]}>
+<section
+  id={id && id}
+  class:list={["section", Astro.props.class && Astro.props.class]}
+>
   <slot />
 </section>
 
@@ -23,5 +26,10 @@ const { bgGray, id } = Astro.props;
   }
   .bgGray {
     background: var(--color-background);
+  }
+
+  .bgContact {
+    background: var(--color-background-contact);
+    color: var(--color-secondary);
   }
 </style>

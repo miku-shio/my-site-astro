@@ -6,6 +6,7 @@ import { MainVisual } from "../components/MainVisual/MainVisual";
 import Section from "../layouts/Section.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
+import Box from "../components/Box.astro";
 import { Image } from "astro:assets";
 import landscape from "../assets/images/landscape.jpg";
 import avator from "../assets/images/avatar.png";
@@ -52,11 +53,20 @@ import avator from "../assets/images/avatar.png";
       </div>
     </ContentLayout>
   </Section>
-  <Section bgGray id="skill">
+  <Section class="bgGray" id="skill">
     <ContentLayout size="s">
       <Heading center>Skill</Heading>
       <div class="contents">
-        <Text center>現在作成中です。</Text>
+        <div class="skill__list">
+          <Box>HTML</Box>
+          <Box>CSS</Box>
+          <Box>SCSS</Box>
+          <Box>JavaScript</Box>
+          <Box>TypeScript</Box>
+          <Box>React</Box>
+          <Box>Next.js</Box>
+          <Box>Astro</Box>
+        </div>
       </div>
     </ContentLayout>
   </Section>
@@ -76,7 +86,7 @@ import avator from "../assets/images/avatar.png";
       </div>
     </ContentLayout>
   </Section>
-  <Section bgGray id="contact">
+  <Section class="bgContact" id="contact">
     <ContentLayout size="s">
       <Heading center>Contact</Heading>
       <div class="contents">
@@ -85,7 +95,12 @@ import avator from "../assets/images/avatar.png";
             href="https://www.twitter.com/miku__daifuku"
             class="link"
             target="_blank">Twiiter</a
-          >のDMよりご連絡ください。
+          >のDMまたは
+          <a
+            href="https://forms.gle/2DGX6txUw3dwasv4A"
+            class="link"
+            target="_blank">Googleフォーム</a
+          >よりご連絡ください。
         </Text>
       </div>
     </ContentLayout>
@@ -139,6 +154,20 @@ import avator from "../assets/images/avatar.png";
       margin-top: 40px;
     }
   }
+
+  .skill__list {
+    display: grid;
+
+    @include mq-sp {
+      gap: 16px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq {
+      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 </style>
 
 <script>
@@ -159,6 +188,26 @@ import avator from "../assets/images/avatar.png";
       },
       scale: 1,
       borderRadius: 0,
+    },
+  );
+
+  gsap.fromTo(
+    ".box",
+    {
+      rotate: 10,
+      yPercent: 10,
+      opacity: 0,
+    },
+    {
+      scrollTrigger: {
+        trigger: ".skill__list",
+        start: "top center",
+      },
+      ease: "expo.out",
+      stagger: 0.1,
+      rotate: 0,
+      opacity: 1,
+      yPercent: 0,
     },
   );
 </script>
