@@ -8,6 +8,7 @@ interface Props {
 }
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
 
 const {
   pageTitle,
@@ -59,6 +60,7 @@ const socialImageURL = new URL("/ogp.png", canonicalURL);
     <main id="main" class:list={[{ underlayer: underlayer }]}>
       <slot />
     </main>
+    <Contact />
     <Footer />
   </body>
 </html>

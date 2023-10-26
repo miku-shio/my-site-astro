@@ -3,24 +3,92 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../layouts/Section.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
 import { Heading } from "../components/Heading/Heading";
-import Text from "../components/Text.astro";
+import { Image } from "astro:assets";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const pageTitle = "About";
 ---
 
 <BaseLayout underlayer pageTitle={pageTitle}>
   <Section>
-    <ContentLayout>
+    <ContentLayout size="s">
       <Heading as="h1">{pageTitle}</Heading>
       <div class="contents">
-        <Text>現在作成中です。</Text>
+        <p>
+          I'm a Front-end engineer, based in Japan.<br />I like cording and my
+          favorite framework is React and Next.js.<br />
+           ( By the way,this site made with Astro! )
+        </p>
+        <p>
+          I also like talk to people because I'm interested in knowing people's
+          values!
+        </p>
+        <dl class="aboutDl">
+          <dt>hobby：</dt>
+          <dd>stroll・reading books・watching movies・traveling abroad</dd>
+          <dt>favorite word：</dt>
+          <dd>serendipity ( Because I like this sound. )</dd>
+          <dt>favorite place：</dt>
+          <dd>lushly green,open space</dd>
+        </dl>
+        <p>
+          I like to travel abroad.Below is where I have done so far.
+          <br />
+           South Korea・Philippines・Taiwan・Guam・Italy・New zealand・Australia
+        </p>
+        <div class="aboutImage">
+          <div>
+            <!-- <Image src={} alt="" class="cover" /> -->
+          </div>
+          <div>
+            <!-- <Image src={} alt="" class="cover" /> -->
+          </div>
+          <div>
+            <!-- <Image src={} alt="" class="cover" /> -->
+          </div>
+        </div>
+        <p>
+          <a
+            href="https://www.instagram.com/miku_starrysky/"
+            target="_blank"
+            class="link"
+          >
+            <FontAwesomeIcon icon={faInstagram} />I also have a travel instagram</a
+          >
+        </p>
       </div>
     </ContentLayout>
   </Section>
-</BaseLayout>
 
-<style lang="scss">
-  .contents {
-    margin-top: 40px;
-  }
-</style>
+  <style lang="scss">
+    .contents {
+      & > p {
+        &:not(:first-child) {
+          margin-top: 24px;
+        }
+      }
+    }
+
+    .aboutDl {
+      margin-top: 24px;
+      display: grid;
+      & > dt {
+        text-transform: capitalize;
+        &:nth-of-type(n + 2) {
+          margin-top: 16px;
+        }
+      }
+    }
+    .aboutImage {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      > div {
+        background: #000;
+        height: 200px;
+      }
+    }
+  </style>
+</BaseLayout>

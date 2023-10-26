@@ -3,14 +3,14 @@
   --color-primary: #333;
   --color-secondary: #fff;
 
-  // --color-accent: #0d4166;
-  --color-accent: #2b3143;
+  --color-accent: #cc9900;
 
   --color-background: #f1f2f2;
   --color-background-contact: #2b3143;
 
   --color-text: #333;
   --color-gray: #888;
+  --color-canvas: #2b3143;
 
   /* contentWidth */
   --content-width-small: 800px;
@@ -25,7 +25,6 @@ html {
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
     "Hiragino Sans", Meiryo, sans-serif;
   min-height: 100vh;
-  // scroll-behavior: smooth;
 }
 
 body {
@@ -88,12 +87,19 @@ img {
   }
 }
 
-.link {
-  text-decoration: underline;
-}
-
 input {
   &:focus-visible {
     outline: -webkit-focus-ring-color auto 1px;
   }
+}
+
+.contents {
+  margin-top: 40px;
+  @include mq-sp {
+    padding: 0 16px;
+  }
+}
+
+.textCenter {
+  text-align: center;
 }

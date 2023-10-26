@@ -14,7 +14,7 @@ const naviList: Navi = [
   },
   {
     name: "About",
-    href: "#about",
+    href: "/about",
   },
   {
     name: "Skill",

@@ -1,0 +1,39 @@
+---
+import ContentLayout from "../layouts/ContentLayout.astro";
+import { Heading } from "./Heading/Heading";
+import Link from "./Link.astro";
+---
+
+<aside class="aside" id="contact">
+  <ContentLayout size="s">
+    <Heading center>Contact</Heading>
+    <div class="contents">
+      <p class="textCenter">
+        お問い合わせは
+        <Link href="https://www.twitter.com/miku__daifuku" target="_blank">
+          TwiiterのDM
+        </Link>
+         または
+        <Link href="https://forms.gle/2DGX6txUw3dwasv4A" target="_blank">
+          Googleフォーム
+        </Link>
+         よりご連絡ください。
+      </p>
+    </div>
+  </ContentLayout>
+</aside>
+
+<style lang="scss">
+  .aside {
+    background: var(--color-background-contact);
+    color: var(--color-secondary);
+    @include mq-sp {
+      padding: 64px 0 80px;
+      min-height: 300px;
+    }
+    @include mq {
+      padding: 80px 0 120px;
+      min-height: 500px;
+    }
+  }
+</style>

@@ -31,7 +31,7 @@ export const MainVisual = () => {
 
   useEffect(() => {
     const color = getComputedStyle(document.documentElement).getPropertyValue(
-      "--color-accent",
+      "--color-canvas",
     );
     // MVのcanvas
     if (!circleCanvas.current) return;

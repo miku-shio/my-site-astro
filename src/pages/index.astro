@@ -4,7 +4,6 @@ import ContentLayout from "../layouts/ContentLayout.astro";
 import { Heading } from "../components/Heading/Heading";
 import { MainVisual } from "../components/MainVisual/MainVisual";
 import Section from "../layouts/Section.astro";
-import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
 import Box from "../components/Box.astro";
 import { Image } from "astro:assets";
@@ -37,15 +36,15 @@ import avator from "../assets/images/avatar.png";
               class="fit"
             />
           </div>
-          <Text>
+          <p>
             こんにちは、mikuです。フロントエンドエンジニアをしています。
             自己紹介時に「あなたのWEBサイトないの？」と聞かれることが増えたので自分のサイトを作りました。
             好きなフレームワークはNext.jsです。
-          </Text>
-          <Text>
+          </p>
+          <p>
             鶏肉が好きです。趣味は散歩です。星座には全く詳しくありませんが、星空が好きです。<br
             />どうぞよろしくお願いします。
-          </Text>
+          </p>
         </div>
         <div class="about__button">
           <Button href="/about" class="center">About me</Button>
@@ -74,7 +73,7 @@ import avator from "../assets/images/avatar.png";
     <ContentLayout size="s">
       <Heading center>Production</Heading>
       <div class="contents">
-        <Text center>
+        <p class="textCenter">
           <a
             href="https://miku-shio.github.io/todo-app/"
             target="_blank"
@@ -82,26 +81,7 @@ import avator from "../assets/images/avatar.png";
           >
             Todoリスト
           </a>
-        </Text>
-      </div>
-    </ContentLayout>
-  </Section>
-  <Section class="bgContact" id="contact">
-    <ContentLayout size="s">
-      <Heading center>Contact</Heading>
-      <div class="contents">
-        <Text center>
-          お問い合わせは<a
-            href="https://www.twitter.com/miku__daifuku"
-            class="link"
-            target="_blank">Twiiter</a
-          >のDMまたは
-          <a
-            href="https://forms.gle/2DGX6txUw3dwasv4A"
-            class="link"
-            target="_blank">Googleフォーム</a
-          >よりご連絡ください。
-        </Text>
+        </p>
       </div>
     </ContentLayout>
   </Section>
