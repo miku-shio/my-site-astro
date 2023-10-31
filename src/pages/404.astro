@@ -4,7 +4,6 @@ import Section from "../layouts/Section.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
 import { Heading } from "../components/Heading/Heading";
 import Button from "../components/Button.astro";
-import Text from "../components/Text.astro";
 
 const pageTitle = "Not found";
 ---
@@ -14,7 +13,7 @@ const pageTitle = "Not found";
     <ContentLayout>
       <Heading as="h1">{pageTitle}</Heading>
       <div class="contents">
-        <Text>お探しのページは存在しないようです。</Text>
+        <p class="textCenter">お探しのページは存在しないようです。</p>
         <div class="notFound-button"><Button href="/">Topに戻る</Button></div>
       </div>
     </ContentLayout>

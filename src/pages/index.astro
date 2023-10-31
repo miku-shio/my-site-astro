@@ -9,18 +9,13 @@ import Box from "../components/Box.astro";
 import { Image } from "astro:assets";
 import landscape from "../assets/images/landscape.jpg";
 import avator from "../assets/images/avatar.png";
+import Link from "../components/Link.astro";
 ---
 
 <BaseLayout>
   <MainVisual client:load />
   <div class="sceneImage">
-    <Image
-      src={landscape}
-      alt="Lake Tekapo"
-      width={1512}
-      height={600}
-      class="cover"
-    />
+    <Image src={landscape} alt="Lake Tekapo" class="cover" />
   </div>
   <Section id="about">
     <ContentLayout size="s">
@@ -37,13 +32,15 @@ import avator from "../assets/images/avatar.png";
             />
           </div>
           <p>
-            こんにちは、mikuです。フロントエンドエンジニアをしています。
-            自己紹介時に「あなたのWEBサイトないの？」と聞かれることが増えたので自分のサイトを作りました。
-            好きなフレームワークはNext.jsです。
+            Hi I'm miku.I'm a Front-end engineer.<br />
+             When I introduce mysellf,I'm often asked "Don't you have a
+            website?",so I created a website.<br />
+             My favorite framework is Next.js.
           </p>
           <p>
-            鶏肉が好きです。趣味は散歩です。星座には全く詳しくありませんが、星空が好きです。<br
-            />どうぞよろしくお願いします。
+            I love chicken.My hobby is stroll.I don't know much about
+            constellations,but I like starry skies.
+            <br />Nice to meet you!
           </p>
         </div>
         <div class="about__button">
@@ -74,13 +71,9 @@ import avator from "../assets/images/avatar.png";
       <Heading center>Production</Heading>
       <div class="contents">
         <p class="textCenter">
-          <a
-            href="https://miku-shio.github.io/todo-app/"
-            target="_blank"
-            class="link"
-          >
-            Todoリスト
-          </a>
+          <Link href="https://miku-shio.github.io/todo-app/" target="_blank">
+            Todo List
+          </Link>
         </p>
       </div>
     </ContentLayout>
@@ -112,6 +105,12 @@ import avator from "../assets/images/avatar.png";
         auto 1fr /
         min(20vw, 260px) 1fr;
       gap: 0 40px;
+    }
+
+    & > p {
+      &:nth-of-type(n + 2) {
+        margin-top: 24px;
+      }
     }
   }
 
