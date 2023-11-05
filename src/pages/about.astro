@@ -85,9 +85,13 @@ const pageTitle = "About";
     }
     .aboutImage {
       margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      display: grid;
+
+      @include mq {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
       > div {
         background: #000;
         height: 200px;
