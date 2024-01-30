@@ -2,8 +2,6 @@ import styles from "./MainVisual.module.scss";
 import { useEffect, useRef } from "react";
 import { Heading } from "../Heading/Heading";
 import { useWindowSize } from "../../hooks/useWindowSize";
-import { init } from "ityped/dist/index";
-import gsap from "gsap";
 import { breakpoints } from "../../config/config";
 
 export const MainVisual = () => {
@@ -109,110 +107,15 @@ export const MainVisual = () => {
       drawBezierCircle(width / 1.2, height / 1.3, circleSize);
     };
     render();
-
-    // loadingのcanvas
-    if (!loadingCanvas.current) return;
-    loadingCanvas.current.setAttribute("width", `${width}px`);
-    loadingCanvas.current.setAttribute("height", `${height}px`);
-    const loadingCtx = loadingCanvas.current.getContext("2d")!;
-    loadingCtx.fillStyle = color;
-
-    writeCanvas(loadingCtx);
-    const animate = () => {
-      y -= 2;
-      writeCanvas(loadingCtx);
-      requestAnimationFrame(animate);
-    };
-    setTimeout(() => {
-      animate();
-    }, 1500);
   }, [width, height]);
 
-  const handleComplete = () => {
-    loadingCanvas.current?.remove();
-    document.body.style.position = "";
-
-    // MainVisualのテキスト
-    init("#first", {
-      strings: [`Hi,I'm Miku.`],
-      loop: false,
-      onFinished() {
-        document.querySelector(".ityped-cursor")?.remove();
-        init("#second", {
-          strings: [`I love freedom!`],
-          loop: false,
-          onFinished() {
-            document.querySelector(".ityped-cursor")?.remove();
-          },
-        });
-      },
-    });
-  };
-
-  useEffect(() => {
-    const tl = gsap.timeline();
-
-    gsap.set(".header", {
-      opacity: 0,
-    });
-
-    gsap.set("body", {
-      position: "fixed",
-    });
-
-    tl.to(loading.current, {
-      yPercent: -100,
-      duration: 1.6,
-      delay: 2,
-      ease: "Expo.easeOut",
-      onComplete: handleComplete,
-    })
-
-      .to(
-        ".header",
-        {
-          opacity: 1,
-          delay: 4.2,
-          duration: 0.6,
-          ease: "Power1.easeOut",
-        },
-        "same",
-      )
-      .to(
-        circleCanvas.current,
-        {
-          delay: 4.2,
-          duration: 0.6,
-          opacity: 1,
-        },
-        "same",
-      );
-
-    //初回のみローディング
-    if (!sessionStorage.getItem(keyName)) {
-      sessionStorage.setItem(keyName, String(keyValue));
-    } else {
-      tl.seek(tl.endTime());
-      handleComplete();
-    }
-  }, []);
-
   return (
-    <>
-      <div ref={loading} className={styles.loading}>
-        <span className={styles.loader}>
-          <span className={styles.loader__inner}></span>
-        </span>
-        <canvas ref={loadingCanvas} className={styles.curtain}></canvas>
-      </div>
-      <div className={styles.root}>
-        <Heading>
-          <span id="first"></span>
-          <br />
-          <span id="second"></span>
-        </Heading>
-        <canvas ref={circleCanvas} className={styles.circle}></canvas>
-      </div>
-    </>
+    <div className={styles.root}>
+      <Heading as="h1">
+        Hi,I'm Miku.
+        <br />I love freedom!
+      </Heading>
+      <canvas ref={circleCanvas} className={styles.circle}></canvas>
+    </div>
   );
 };
