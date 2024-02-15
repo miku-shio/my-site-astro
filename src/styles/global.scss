@@ -1,16 +1,15 @@
 :root {
   /* color */
-  --color-primary: #333;
-  --color-secondary: #fff;
-
-  --color-accent: #cc9900;
+  --color-primary: #525d7e;
+  --color-secondary: #2b3143;
+  --color-thirdry: #eff1f4;
 
   --color-background: #f1f2f2;
-  --color-background-contact: #2b3143;
 
   --color-text: #333;
   --color-gray: #888;
-  --color-canvas: #2b3143;
+  --color-white: #fff;
+  --color-canvas: var(--color-secondary);
 
   /* contentWidth */
   --content-width-small: 800px;
@@ -19,6 +18,13 @@
   /* headerHeight */
   --headerHeight: 100px;
   --headerHeight-sp: 80px;
+
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-64: 64px;
 }
 
 html {
@@ -34,6 +40,13 @@ body {
   height: 100dvh;
   display: flex;
   flex-direction: column;
+
+  *:focus-visible {
+    outline-style: solid;
+    outline-color: var(--color-primary);
+    outline-width: 4px;
+    outline-offset: 2px;
+  }
 }
 
 header,

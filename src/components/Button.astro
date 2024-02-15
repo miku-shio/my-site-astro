@@ -19,8 +19,8 @@ const { href } = Astro.props;
     justify-content: space-between;
     align-items: center;
     width: fit-content;
-    color: var(--color-primary);
-    background: var(--color-secondary);
+    color: var(--color-white);
+    background: var(--color-primary);
     text-align: center;
     border-radius: 40px;
     border: 2px solid var(--color-primary);
@@ -38,8 +38,8 @@ const { href } = Astro.props;
     }
 
     @include hover {
-      background: var(--color-primary);
-      color: var(--color-secondary);
+      background: var(--color-secondary);
+      border-color: var(--color-secondary);
       .button__icon {
         translate: 5px;
       }
