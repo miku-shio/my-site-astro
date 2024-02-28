@@ -20,26 +20,25 @@ const { href } = Astro.props;
     align-items: center;
     width: fit-content;
     color: var(--color-white);
-    background: var(--color-primary);
+    background: var(--color-primary-dark);
     text-align: center;
-    border-radius: 40px;
-    border: 2px solid var(--color-primary);
+    border-radius: 8px;
     font-weight: bold;
-    transition-property: color, background;
+    transition-property: color, background, border;
     transition-duration: 0.3s;
+    min-height: 48px;
 
     @include mq {
-      padding: 10px 24px;
+      padding: 8px 24px;
       min-width: 240px;
     }
     @include mq-sp {
-      padding: 14px 20px;
+      padding: 8px 24px;
       width: 100%;
     }
 
     @include hover {
-      background: var(--color-secondary);
-      border-color: var(--color-secondary);
+      background: var(--color-primary);
       .button__icon {
         translate: 5px;
       }

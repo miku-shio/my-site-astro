@@ -1,13 +1,19 @@
 :root {
   /* color */
-  --color-primary: #525d7e;
-  --color-secondary: #2b3143;
+  --color-primary: #1a4472;
+  --color-primary-dark: #102a46;
+  --color-primary-light: #235c98;
+
+  --color-secondary: #006888;
+  --color-secondary-dark: #003e51;
+  --color-secondary-light: #008cb7;
   --color-thirdry: #eff1f4;
 
   --color-background: #f1f2f2;
 
   --color-text: #333;
   --color-gray: #888;
+  --color-gray-light: #eaeaea;
   --color-white: #fff;
   --color-canvas: var(--color-secondary);
 
