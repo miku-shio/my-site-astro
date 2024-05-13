@@ -37,7 +37,8 @@ const pageTitle = "About";
         <p>
           I like to travel abroad.Below is where I have done so far.
           <br />
-           South Korea・Philippines・Taiwan・Guam・Italy・New zealand・Australia
+           South Korea/Philippines/Taiwan/Guam/Italy/New
+          zealand/Australia/Canada
         </p>
         <div class="aboutImage">
           <div>
@@ -56,7 +57,8 @@ const pageTitle = "About";
             target="_blank"
             class="link"
           >
-            <FontAwesomeIcon icon={faInstagram} />I also have a travel instagram</a
+            <FontAwesomeIcon icon={faInstagram} className="icon" />I also have a
+            travel instagram</a
           >
         </p> -->
       </div>
@@ -64,6 +66,9 @@ const pageTitle = "About";
   </Section>
 
   <style lang="scss">
+    .icon {
+      margin-right: 8px;
+    }
     .contents {
       & > p {
         &:not(:first-child) {

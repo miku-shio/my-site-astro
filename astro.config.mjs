@@ -5,14 +5,17 @@ import relativeLinks from "astro-relative-links";
 
 // https://astro.build/config
 export default defineConfig({
+  server: {
+    open: true,
+  },
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
           additionalData: `@use "src/styles/_mixin.scss" as *;`,
-        }
-      }
-    }
+        },
+      },
+    },
   },
-  integrations: [react(), relativeLinks()]
+  integrations: [react(), relativeLinks()],
 });
