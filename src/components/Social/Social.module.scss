@@ -4,9 +4,11 @@
 
   a {
     display: block;
-    width: 20px;
-    height: 20px;
     transition: scale 0.3s;
+
+    @include mq-sp {
+      padding: 10px;
+    }
 
     @include hover {
       scale: 1.2;
@@ -14,7 +16,7 @@
   }
 
   svg {
-    width: 100%;
+    width: 24px;
     height: 100%;
   }
 }

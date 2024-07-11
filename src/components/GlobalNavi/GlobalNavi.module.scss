@@ -1,11 +1,11 @@
 .root {
-  display: flex;
   @include mq-sp {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    display: flex;
     flex-direction: column;
     gap: 56px;
     visibility: hidden;
@@ -14,6 +14,8 @@
     overflow-y: scroll;
   }
   @include mq {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     align-items: center;
     gap: 40px;
   }
@@ -68,12 +70,6 @@
     display: flex;
     justify-content: center;
   }
-  @include mq {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    padding: 20px 40px;
-  }
 }
 
 .contact {
@@ -91,6 +87,7 @@
   }
 
   @include mq {
+    order: 1;
     position: relative;
     z-index: 1;
     padding: 8px 0;
