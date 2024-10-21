@@ -2,54 +2,20 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
 import { Heading } from "../components/Heading/Heading";
-import { MainVisual } from "../components/MainVisual/MainVisual";
+import MainVisual from "../components/MainVisual.astro";
 import Section from "../layouts/Section.astro";
 import Button from "../components/Button.astro";
 import Box from "../components/Box.astro";
 import { Image } from "astro:assets";
 import landscape from "../assets/images/landscape.jpg";
-import avator from "../assets/images/avatar.png";
 import Link from "../components/Link.astro";
 ---
 
 <BaseLayout>
-  <MainVisual client:load />
+  <MainVisual />
   <div class="sceneImage">
     <Image src={landscape} alt="Lake Tekapo" class="cover" />
   </div>
-  <Section id="about">
-    <ContentLayout size="s">
-      <Heading center>About</Heading>
-      <div class="contents">
-        <div class="about__grid">
-          <div class="about__image">
-            <Image
-              src={avator}
-              width={280}
-              height={280}
-              alt="mikuのアイコン"
-              class="fit"
-            />
-          </div>
-          <p>
-            Hi I'm miku.I'm a Front-end engineer.<br />
-             When I introduce mysellf, I'm often asked "Don't you have a
-            website?",so I created my website.
-          </p>
-          <p>
-            I like traveling abroad and talk to people!<br />
-             I want to speak English fluenty, so I made that my goal this year(
-            2024 )<br />
-             I don't know much about constellations,but I like starry skies.
-            <br />Thank you!
-          </p>
-        </div>
-        <div class="about__button">
-          <Button href="/about" class="center">About me</Button>
-        </div>
-      </div>
-    </ContentLayout>
-  </Section>
   <Section class="bgGray" id="skill">
     <ContentLayout size="s">
       <Heading center>Skill</Heading>
@@ -64,14 +30,6 @@ import Link from "../components/Link.astro";
           <Box>Next.js</Box>
           <Box>Astro</Box>
         </div>
-      </div>
-    </ContentLayout>
-  </Section>
-  <Section id="production">
-    <ContentLayout size="s">
-      <Heading center>Production</Heading>
-      <div class="contents">
-        <p class="textCenter">Comming soon...</p>
       </div>
     </ContentLayout>
   </Section>
@@ -90,44 +48,6 @@ import Link from "../components/Link.astro";
     border-radius: 40px;
     @include mq-sp {
       height: 50vw;
-    }
-  }
-
-  .about__grid {
-    display: grid;
-    margin-top: 40px;
-
-    @include mq {
-      grid-template:
-        auto 1fr /
-        min(20vw, 260px) 1fr;
-      gap: 0 40px;
-    }
-
-    & > p {
-      &:nth-of-type(n + 2) {
-        margin-top: 24px;
-      }
-    }
-  }
-
-  .about__image {
-    @include mq-sp {
-      width: min(64.1vw, 250px);
-      margin: 0 auto 32px;
-    }
-
-    @include mq {
-      grid-row: 1/3;
-    }
-  }
-
-  .about__button {
-    @include mq-sp {
-      margin-top: 48px;
-    }
-    @include mq {
-      margin-top: 40px;
     }
   }
 

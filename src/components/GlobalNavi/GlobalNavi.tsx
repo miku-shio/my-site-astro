@@ -18,11 +18,7 @@ const naviList: Navi = [
   },
   {
     name: "Skill",
-    href: "#skill",
-  },
-  {
-    name: "Production",
-    href: "#production",
+    href: "/#skill",
   },
 ];
 
@@ -74,13 +70,6 @@ export const GlobalNavi = () => {
             </li>
           ))}
         </ul>
-        <a
-          href="#contact"
-          className={styles.contact}
-          onClick={() => width < breakpoints.md && clickHandle()}
-        >
-          Contact
-        </a>
         <div className={styles.social}>
           <Social />
         </div>

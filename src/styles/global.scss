@@ -1,10 +1,7 @@
 :root {
   /* color */
-  --color-primary: #1a4472;
-  --color-primary-dark: #102a46;
-  --color-primary-light: #235c98;
-
-  --color-secondary: #eff1f4;
+  --color-primary: #102a46;
+  --color-secondary: #40b5c5;
 
   --color-background: #f1f2f2;
 
@@ -12,7 +9,8 @@
   --color-gray: #888;
   --color-gray-light: #eaeaea;
   --color-white: #fff;
-  --color-canvas: var(--color-primary-dark);
+
+  --color-hover: #1a4472;
 
   /* contentWidth */
   --content-width-small: 800px;
@@ -46,8 +44,8 @@ body {
 
   *:focus-visible {
     outline-style: solid;
-    outline-color: var(--color-primary);
-    outline-width: 4px;
+    outline-color: var(--color-secondary);
+    outline-width: 3px;
     outline-offset: 2px;
   }
 }

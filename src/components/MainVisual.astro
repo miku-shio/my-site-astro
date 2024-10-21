@@ -1,0 +1,24 @@
+---
+import { Heading } from "./Heading/Heading";
+import Button from "./Button.astro";
+---
+
+<div class="mainVisual">
+  <Heading as="h1">
+    Hi,I'm Miku.
+    <br />I love freedom!
+  </Heading>
+  <Button href="/about">About me</Button>
+</div>
+
+<style lang="scss">
+  .mainVisual {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    height: 100dvh;
+    gap: 32px;
+  }
+</style>

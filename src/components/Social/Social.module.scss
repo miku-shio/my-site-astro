@@ -1,22 +1,21 @@
 .root {
   display: flex;
-  gap: 20px;
 
   a {
-    display: block;
+    display: grid;
+    place-content: center;
     transition: scale 0.3s;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
 
-    @include mq-sp {
-      padding: 10px;
+    svg {
+      width: 20px;
+      height: 100%;
     }
 
     @include hover {
-      scale: 1.2;
+      background: rgba(0, 0, 0, 0.05);
     }
-  }
-
-  svg {
-    width: 24px;
-    height: 100%;
   }
 }

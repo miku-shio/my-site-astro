@@ -9,15 +9,14 @@
     flex-direction: column;
     gap: 56px;
     visibility: hidden;
-    background: var(--color-primary-dark);
+    background: var(--color-primary);
     padding: var(--headerHeight-sp) 16px 80px;
     overflow-y: scroll;
   }
   @include mq {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 16px;
   }
 
   &.isOpen {
@@ -72,38 +71,6 @@
   }
 }
 
-.contact {
-  display: inline-block;
-  border-radius: 8px;
-  text-align: center;
-
-  @include mq-sp {
-    order: 1;
-    margin-top: auto;
-    padding: 10px 0;
-    background: var(--color-white);
-    color: var(--color-primary-dark);
-    font-size: 24px;
-  }
-
-  @include mq {
-    order: 1;
-    position: relative;
-    z-index: 1;
-    padding: 8px 0;
-    background: var(--color-primary-dark);
-    color: var(--color-white);
-    width: 130px;
-    font-weight: bold;
-    font-size: 16px;
-    transition: background 0.2s;
-  }
-
-  @include hover {
-    background: var(--color-primary);
-  }
-}
-
 .button {
   @include mq-sp {
     position: relative;
@@ -115,7 +82,7 @@
     width: clamp(56px, 15vw, 64px);
     height: clamp(56px, 15vw, 64px);
     border-radius: 50%;
-    background: var(--color-primary-dark);
+    background: var(--color-primary);
     color: var(--color-white);
   }
   @include mq {
@@ -123,13 +90,13 @@
   }
 
   &[aria-expanded="true"] {
-    color: var(--color-primary-dark);
+    color: var(--color-primary);
     background: var(--color-white);
 
     .button__icon {
       &::before,
       &::after {
-        background: var(--color-primary-dark);
+        background: var(--color-primary);
       }
     }
   }
