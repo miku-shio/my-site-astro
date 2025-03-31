@@ -49,7 +49,6 @@ export const GlobalNavi = () => {
         <span className={styles.button__icon}>
           <span className="screenReaderText">メニューを開閉</span>
         </span>
-        <span className={styles.button__text}>menu</span>
       </button>
 
       <nav

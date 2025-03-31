@@ -78,9 +78,8 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 10px;
-    width: clamp(56px, 15vw, 64px);
-    height: clamp(56px, 15vw, 64px);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--color-primary);
     color: var(--color-white);
@@ -94,10 +93,7 @@
     background: var(--color-white);
 
     .button__icon {
-      &::before,
-      &::after {
-        background: var(--color-primary);
-      }
+      background: var(--color-primary);
     }
   }
 }
@@ -106,31 +102,29 @@
   @include mq-sp {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
+    margin: auto;
+    width: 24px;
+    height: 2px;
+    background: var(--color-white);
+    border-radius: 24px;
+
     &::before,
     &::after {
       position: absolute;
-      left: 28%;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      background: inherit;
       content: "";
       display: inline-block;
-      background: var(--color-white);
-      height: 2px;
-      border-radius: 24px;
+      width: 100%;
+      height: 100%;
     }
     &::before {
-      top: 18px;
-      width: 20px;
+      top: -8px;
     }
     &::after {
-      top: 26px;
-      width: 30px;
+      bottom: -8px;
     }
-  }
-}
-
-.button__text {
-  @include mq-sp {
-    font-size: 14px;
   }
 }

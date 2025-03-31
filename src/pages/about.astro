@@ -19,7 +19,7 @@ const pageTitle = "About me";
       <Heading as="h1">{pageTitle}</Heading>
       <div class="contents">
         <p>
-          I'm Front End Engineer. I'm introvert ane basically warm-hearted
+          I'm Front End Engineer. I'm introvert and basically warm-hearted
           person. <br /> I want to be a loving person.
         </p>
         <dl class="aboutDl">
@@ -28,7 +28,7 @@ const pageTitle = "About me";
           <dt>Countries visited so far</dt>
           <dd>
             South Korea / Philippines / Taiwan / Guam / Italy / New zealand /
-            Australia / Canada
+            Australia / Canada / Ireland
           </dd>
         </dl>
         <div class="aboutImage">
@@ -42,26 +42,37 @@ const pageTitle = "About me";
             <Image src={img03} alt="" class="cover" />
           </div>
         </div>
-        <!-- <p>
-          <a
-            href="https://www.instagram.com/miku_starrysky/"
-            target="_blank"
-            class="link"
-          >
-            <FontAwesomeIcon icon={faInstagram} className="icon" />I also have a
-            travel instagram</a
-          >
-        </p> -->
+        <a
+          href="https://www.instagram.com/miku_starrysky/"
+          target="_blank"
+          class="link"
+        >
+          If you want to know more about me, please check my Instagram!
+          <FontAwesomeIcon icon={faInstagram} className="icon" />
+        </a>
       </div>
     </ContentLayout>
   </Section>
 
   <style lang="scss">
+    .link {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
     .icon {
-      margin-right: 8px;
+      margin-left: 8px;
+      width: 16px;
+      height: auto;
+      aspect-ratio: 1 /1;
     }
     .contents {
-      & > p {
+      & > * {
         &:not(:first-child) {
           margin-top: 24px;
         }

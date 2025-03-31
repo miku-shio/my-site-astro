@@ -13,19 +13,22 @@ import Contact from "../components/Contact.astro";
 const {
   pageTitle,
   underlayer,
-  description = "これはMikuのWebサイトです。",
+  description = "This is Miku's website",
 } = Astro.props;
-const siteTitle = "Miku site";
+
+const siteTitle = "Miku Higashio";
 
 const canonicalURL = new URL(
   Astro.url.pathname,
   "https://miku-site.vercel.app/",
 );
 const socialImageURL = new URL("/ogp.png", canonicalURL);
+const language = Astro.currentLocale;
+console.log(language);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="" />
